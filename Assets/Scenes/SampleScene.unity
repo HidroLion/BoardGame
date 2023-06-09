@@ -202,6 +202,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 26
   colorID: 2
+  speed: 10
 --- !u!212 &17114123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -685,6 +686,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 26
   colorID: 2
+  speed: 10
 --- !u!212 &314764734
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1169,6 +1171,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 13
   colorID: 1
+  speed: 10
 --- !u!1 &552951813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,6 +1375,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 13
   colorID: 1
+  speed: 10
 --- !u!212 &628301846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1472,6 +1476,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 39
   colorID: 3
+  speed: 10
 --- !u!212 &638679147
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1748,6 +1753,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 26
   colorID: 2
+  speed: 10
 --- !u!212 &746249178
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1848,6 +1854,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 39
   colorID: 3
+  speed: 10
 --- !u!212 &754533930
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2200,6 +2207,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 0
   colorID: 0
+  speed: 10
 --- !u!212 &1074881595
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2300,6 +2308,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 0
   colorID: 0
+  speed: 10
 --- !u!212 &1087426241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2362,6 +2371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1113386082}
   - component: {fileID: 1113386081}
+  - component: {fileID: 1113386084}
   - component: {fileID: 1113386083}
   m_Layer: 0
   m_Name: GameManager
@@ -2415,8 +2425,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592a24d70068f6841ad37fff88d07bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakeDice: 4
-  playerCounter: {fileID: 754533929}
+  fakeDice: 5
+  playerCounter: {fileID: 628301845}
+--- !u!114 &1113386084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113386080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2acf9fd981388849923476f4f206ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bluePawns:
+  - {fileID: 1286445636}
+  - {fileID: 1165642796}
+  - {fileID: 1087426240}
+  - {fileID: 1074881594}
+  redPawns:
+  - {fileID: 534036387}
+  - {fileID: 1656067214}
+  - {fileID: 628301845}
+  - {fileID: 1902371241}
+  greenPawns:
+  - {fileID: 314764733}
+  - {fileID: 1452989289}
+  - {fileID: 17114122}
+  - {fileID: 746249177}
+  yellowPawns:
+  - {fileID: 1215559546}
+  - {fileID: 638679146}
+  - {fileID: 1866314514}
+  - {fileID: 754533929}
 --- !u!1 &1121187175
 GameObject:
   m_ObjectHideFlags: 0
@@ -2527,6 +2569,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 0
   colorID: 0
+  speed: 10
 --- !u!212 &1165642797
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2627,6 +2670,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 39
   colorID: 3
+  speed: 10
 --- !u!212 &1215559547
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2851,6 +2895,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 0
   colorID: 0
+  speed: 10
 --- !u!212 &1286445637
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3137,6 +3182,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 26
   colorID: 2
+  speed: 10
 --- !u!212 &1452989290
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3489,6 +3535,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 13
   colorID: 1
+  speed: 10
 --- !u!212 &1656067215
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4087,6 +4134,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 39
   colorID: 3
+  speed: 10
 --- !u!212 &1866314515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4218,6 +4266,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 13
   colorID: 1
+  speed: 10
 --- !u!212 &1902371242
 SpriteRenderer:
   m_ObjectHideFlags: 0

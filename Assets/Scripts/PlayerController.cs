@@ -5,26 +5,27 @@ using UnityEngine.SearchService;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] TilesList list;
-
-    [SerializeField] int startPosIndex;
-    [SerializeField] int colorID;
+    //Serializeble Variables > Refferences
+    [SerializeField] TilesList list; //List of Tiles (GameManager)
+    [SerializeField] int startPosIndex; //Start Position: Array Position of the Start Tile 
+    [SerializeField] int colorID; //Array Position of Colors Tiles Lists
+    [SerializeField] float speed; //Movement Speed: Recomended 10
 
     int movesCount;
     Transform[] playerRoute;
     bool walking;
-
-    float speed = 10;
+    bool unlock;
 
     int currentMoves;
     int maxMoves;
 
     public bool Walking { get => walking; set => walking = value; }
 
+    //Start Funtions
     private void Start()
     {
         currentMoves = 0;
-
+        unlock = false;
         LateStart();
     }
 
@@ -47,32 +48,41 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Movement Functions
     public void FirstMove()
     {
         transform.position = list.Tiles[startPosIndex].position;
         movesCount = startPosIndex;
-    }
-
-    public void Movement()
-    {
-        transform.position =
-            Vector2.MoveTowards
-            (transform.position, playerRoute[currentMoves + 1].position, speed * Time.deltaTime);
-        if (transform.position == playerRoute[currentMoves + 1].position)
-        {
-            currentMoves++;
-            maxMoves--;
-            if (maxMoves == 0)
-                Walking = false;
-        }
+        unlock = true;
     }
 
     public void TilesMovement(int moves)
     {
-        maxMoves = moves;
-        Walking = true;
+        if (unlock)
+        {
+            maxMoves = moves;
+            Walking = true;
+        }
     }
 
+    public void Movement()
+    {
+        if(currentMoves + maxMoves <= 56)
+        {
+            transform.position =
+                Vector2.MoveTowards
+                    (transform.position, playerRoute[currentMoves + 1].position, speed * Time.deltaTime);
+            if (transform.position == playerRoute[currentMoves + 1].position)
+            {
+                currentMoves++;
+                maxMoves--;
+                if (maxMoves == 0)
+                    Walking = false;
+            }
+        }
+    }
+
+    //General Functions
     private void Update()
     {
         if (Walking)
