@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int colorID; //Array Position of Colors Tiles Lists
     [SerializeField] float speed; //Movement Speed: Recomended 10
 
+    Vector3 jailPosition;
+
+    StagesMachine gameCotroller;
     int movesCount;
     Transform[] playerRoute;
     bool walking;
@@ -19,14 +22,20 @@ public class PlayerController : MonoBehaviour
     int currentMoves;
     int maxMoves;
 
+    public bool safeZone;
+
     public bool Walking { get => walking; set => walking = value; }
     public bool Unlock { get => unlock; set => unlock = value; }
+    public bool SafeZone { get => safeZone; set => safeZone = value; }
 
     //Start Funtions
     private void Start()
     {
         currentMoves = 0;
         Unlock = false;
+
+        jailPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
         LateStart();
     }
 
@@ -47,6 +56,8 @@ public class PlayerController : MonoBehaviour
         {
             playerRoute[i + 51] = list.WinLine[colorID, i];
         }
+
+        gameCotroller = GameObject.FindGameObjectWithTag("GameController").GetComponent<StagesMachine>();
     }
 
     //Movement Functions
@@ -81,6 +92,80 @@ public class PlayerController : MonoBehaviour
                     Walking = false;
             }
         }
+    }
+
+    //Kill and Die Funtions
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Safe"))
+        {
+            SafeZone = true;
+        }
+
+        if (collision.CompareTag("Player " + colorID))
+        {
+            SafeZone = true;
+            collision.GetComponent<PlayerController>().SafeZone = true;
+        }
+
+        switch (colorID)
+        {
+            case 0:
+                if(collision.CompareTag("Player 1") || collision.CompareTag("Player 2") || collision.CompareTag("Player 3"))
+                {
+                    if(!collision.GetComponent<PlayerController>().SafeZone)
+                        collision.GetComponent<PlayerController>().Dead();
+                }
+                break;
+
+            case 1:
+                if (collision.CompareTag("Player 0") || collision.CompareTag("Player 2") || collision.CompareTag("Player 3"))
+                {
+                    if (!collision.GetComponent<PlayerController>().SafeZone)
+                        collision.GetComponent<PlayerController>().Dead();
+                }
+                break;
+
+            case 2:
+                if (collision.CompareTag("Player 0") || collision.CompareTag("Player 1") || collision.CompareTag("Player 3"))
+                {
+                    if (!collision.GetComponent<PlayerController>().SafeZone)
+                        collision.GetComponent<PlayerController>().Dead();
+                }
+                break;
+
+            case 3:
+                if (collision.CompareTag("Player 0") || collision.CompareTag("Player 1") || collision.CompareTag("Player 2"))
+                {
+                    if (!collision.GetComponent<PlayerController>().SafeZone)
+                        collision.GetComponent<PlayerController>().Dead();
+                }
+                break;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Safe"))
+        {
+            SafeZone = false;
+        }
+
+        if (collision.CompareTag("Player " + colorID))
+        {
+            SafeZone = false;
+        }
+    }
+
+    public void Dead()
+    {
+        Unlock = false;
+        transform.position = jailPosition;
+        gameCotroller.Players[colorID].JailPawns.Add(gameObject.GetComponent<PlayerController>());
+
+#if UNITY_EDITOR
+        Debug.Log("{HD} - Kill: Pawn Dead - Player " + colorID);
+#endif
     }
 
     //General Functions

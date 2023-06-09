@@ -165,8 +165,8 @@ GameObject:
   - component: {fileID: 17114121}
   - component: {fileID: 17114123}
   - component: {fileID: 17114122}
-  - component: {fileID: 17114125}
   - component: {fileID: 17114126}
+  - component: {fileID: 17114127}
   - component: {fileID: 17114124}
   m_Layer: 0
   m_Name: GreenPawn (2)
@@ -206,6 +206,7 @@ MonoBehaviour:
   startPosIndex: 26
   colorID: 2
   speed: 10
+  safeZone: 0
 --- !u!212 &17114123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -279,32 +280,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &17114125
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17114120}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &17114126
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -321,6 +296,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &17114127
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17114120}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &57005950
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,8 +706,8 @@ GameObject:
   - component: {fileID: 314764732}
   - component: {fileID: 314764734}
   - component: {fileID: 314764733}
-  - component: {fileID: 314764736}
   - component: {fileID: 314764737}
+  - component: {fileID: 314764738}
   - component: {fileID: 314764735}
   m_Layer: 0
   m_Name: GreenPawn (0)
@@ -756,6 +747,7 @@ MonoBehaviour:
   startPosIndex: 26
   colorID: 2
   speed: 10
+  safeZone: 0
 --- !u!212 &314764734
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -829,32 +821,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &314764736
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314764731}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &314764737
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -871,6 +837,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &314764738
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314764731}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &328366998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,8 +1196,8 @@ GameObject:
   - component: {fileID: 534036386}
   - component: {fileID: 534036385}
   - component: {fileID: 534036387}
-  - component: {fileID: 534036389}
   - component: {fileID: 534036390}
+  - component: {fileID: 534036391}
   - component: {fileID: 534036388}
   m_Layer: 0
   m_Name: RedPawn (0)
@@ -1307,6 +1289,7 @@ MonoBehaviour:
   startPosIndex: 13
   colorID: 1
   speed: 10
+  safeZone: 0
 --- !u!50 &534036388
 Rigidbody2D:
   serializedVersion: 4
@@ -1328,32 +1311,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &534036389
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534036383}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &534036390
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1370,6 +1327,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &534036391
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534036383}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &552951813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,8 +1509,8 @@ GameObject:
   - component: {fileID: 628301844}
   - component: {fileID: 628301846}
   - component: {fileID: 628301845}
-  - component: {fileID: 628301848}
   - component: {fileID: 628301849}
+  - component: {fileID: 628301850}
   - component: {fileID: 628301847}
   m_Layer: 0
   m_Name: RedPawn  (2)
@@ -1577,6 +1550,7 @@ MonoBehaviour:
   startPosIndex: 13
   colorID: 1
   speed: 10
+  safeZone: 0
 --- !u!212 &628301846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1650,32 +1624,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &628301848
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628301843}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &628301849
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1692,6 +1640,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &628301850
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628301843}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &638679144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,8 +1667,8 @@ GameObject:
   - component: {fileID: 638679145}
   - component: {fileID: 638679147}
   - component: {fileID: 638679146}
-  - component: {fileID: 638679149}
   - component: {fileID: 638679150}
+  - component: {fileID: 638679151}
   - component: {fileID: 638679148}
   m_Layer: 0
   m_Name: YellowPawn (1)
@@ -1744,6 +1708,7 @@ MonoBehaviour:
   startPosIndex: 39
   colorID: 3
   speed: 10
+  safeZone: 0
 --- !u!212 &638679147
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1817,32 +1782,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &638679149
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638679144}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &638679150
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1859,6 +1798,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &638679151
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638679144}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &640550685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,8 +2001,8 @@ GameObject:
   - component: {fileID: 746249176}
   - component: {fileID: 746249178}
   - component: {fileID: 746249177}
-  - component: {fileID: 746249180}
   - component: {fileID: 746249181}
+  - component: {fileID: 746249182}
   - component: {fileID: 746249179}
   m_Layer: 0
   m_Name: GreenPawn (3)
@@ -2087,6 +2042,7 @@ MonoBehaviour:
   startPosIndex: 26
   colorID: 2
   speed: 10
+  safeZone: 0
 --- !u!212 &746249178
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2160,32 +2116,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &746249180
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746249175}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &746249181
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2202,6 +2132,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &746249182
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746249175}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &754533927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2213,8 +2159,8 @@ GameObject:
   - component: {fileID: 754533928}
   - component: {fileID: 754533930}
   - component: {fileID: 754533929}
-  - component: {fileID: 754533932}
   - component: {fileID: 754533933}
+  - component: {fileID: 754533934}
   - component: {fileID: 754533931}
   m_Layer: 0
   m_Name: YellowPawn (3)
@@ -2254,6 +2200,7 @@ MonoBehaviour:
   startPosIndex: 39
   colorID: 3
   speed: 10
+  safeZone: 0
 --- !u!212 &754533930
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2327,32 +2274,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &754533932
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754533927}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &754533933
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2369,6 +2290,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &754533934
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754533927}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &770484429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2632,8 +2569,8 @@ GameObject:
   - component: {fileID: 1074881593}
   - component: {fileID: 1074881595}
   - component: {fileID: 1074881594}
-  - component: {fileID: 1074881597}
   - component: {fileID: 1074881598}
+  - component: {fileID: 1074881599}
   - component: {fileID: 1074881596}
   m_Layer: 0
   m_Name: BluePawn (3)
@@ -2673,6 +2610,7 @@ MonoBehaviour:
   startPosIndex: 0
   colorID: 0
   speed: 10
+  safeZone: 0
 --- !u!212 &1074881595
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2746,32 +2684,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1074881597
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074881592}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &1074881598
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2788,6 +2700,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &1074881599
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074881592}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &1087426238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,8 +2727,8 @@ GameObject:
   - component: {fileID: 1087426239}
   - component: {fileID: 1087426241}
   - component: {fileID: 1087426240}
-  - component: {fileID: 1087426243}
   - component: {fileID: 1087426244}
+  - component: {fileID: 1087426245}
   - component: {fileID: 1087426242}
   m_Layer: 0
   m_Name: BluePawn (2)
@@ -2840,6 +2768,7 @@ MonoBehaviour:
   startPosIndex: 0
   colorID: 0
   speed: 10
+  safeZone: 0
 --- !u!212 &1087426241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2913,32 +2842,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1087426243
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087426238}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &1087426244
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2955,6 +2858,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &1087426245
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087426238}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &1113386080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2966,10 +2885,9 @@ GameObject:
   - component: {fileID: 1113386082}
   - component: {fileID: 1113386081}
   - component: {fileID: 1113386084}
-  - component: {fileID: 1113386083}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3007,20 +2925,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1113386083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113386080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 592a24d70068f6841ad37fff88d07bdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fakeDice: 5
-  playerCounter: {fileID: 628301845}
 --- !u!114 &1113386084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3063,9 +2967,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1121187176}
+  - component: {fileID: 1121187178}
+  - component: {fileID: 1121187177}
   m_Layer: 0
   m_Name: Tile (8)
-  m_TagString: Untagged
+  m_TagString: Safe
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3085,6 +2991,53 @@ Transform:
   m_Father: {fileID: 665068021}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1121187177
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121187175}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3}
+  m_EdgeRadius: 0
+--- !u!50 &1121187178
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121187175}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1144325317
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,8 +3080,8 @@ GameObject:
   - component: {fileID: 1165642795}
   - component: {fileID: 1165642797}
   - component: {fileID: 1165642796}
-  - component: {fileID: 1165642799}
   - component: {fileID: 1165642800}
+  - component: {fileID: 1165642801}
   - component: {fileID: 1165642798}
   m_Layer: 0
   m_Name: BluePawn (1)
@@ -3168,6 +3121,7 @@ MonoBehaviour:
   startPosIndex: 0
   colorID: 0
   speed: 10
+  safeZone: 0
 --- !u!212 &1165642797
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3241,32 +3195,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1165642799
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165642794}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &1165642800
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3283,6 +3211,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &1165642801
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165642794}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &1215559544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,8 +3238,8 @@ GameObject:
   - component: {fileID: 1215559545}
   - component: {fileID: 1215559547}
   - component: {fileID: 1215559546}
-  - component: {fileID: 1215559549}
   - component: {fileID: 1215559550}
+  - component: {fileID: 1215559551}
   - component: {fileID: 1215559548}
   m_Layer: 0
   m_Name: YellowPawn (0)
@@ -3335,6 +3279,7 @@ MonoBehaviour:
   startPosIndex: 39
   colorID: 3
   speed: 10
+  safeZone: 0
 --- !u!212 &1215559547
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3408,32 +3353,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1215559549
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215559544}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &1215559550
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3450,6 +3369,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &1215559551
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215559544}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &1220957232
 GameObject:
   m_ObjectHideFlags: 0
@@ -3585,8 +3520,8 @@ GameObject:
   - component: {fileID: 1286445635}
   - component: {fileID: 1286445637}
   - component: {fileID: 1286445636}
-  - component: {fileID: 1286445639}
   - component: {fileID: 1286445640}
+  - component: {fileID: 1286445641}
   - component: {fileID: 1286445638}
   m_Layer: 0
   m_Name: BluePawn (0)
@@ -3626,6 +3561,7 @@ MonoBehaviour:
   startPosIndex: 0
   colorID: 0
   speed: 10
+  safeZone: 0
 --- !u!212 &1286445637
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3699,32 +3635,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1286445639
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286445634}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &1286445640
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3741,6 +3651,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &1286445641
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286445634}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &1312922727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3812,9 +3738,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1384703543}
+  - component: {fileID: 1384703545}
+  - component: {fileID: 1384703544}
   m_Layer: 0
   m_Name: Tile (47)
-  m_TagString: Untagged
+  m_TagString: Safe
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3834,6 +3762,53 @@ Transform:
   m_Father: {fileID: 665068021}
   m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1384703544
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384703542}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3}
+  m_EdgeRadius: 0
+--- !u!50 &1384703545
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384703542}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1394975863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3938,8 +3913,8 @@ GameObject:
   - component: {fileID: 1452989288}
   - component: {fileID: 1452989290}
   - component: {fileID: 1452989289}
-  - component: {fileID: 1452989292}
   - component: {fileID: 1452989293}
+  - component: {fileID: 1452989294}
   - component: {fileID: 1452989291}
   m_Layer: 0
   m_Name: GreenPawn (1)
@@ -3979,6 +3954,7 @@ MonoBehaviour:
   startPosIndex: 26
   colorID: 2
   speed: 10
+  safeZone: 0
 --- !u!212 &1452989290
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4052,32 +4028,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1452989292
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452989287}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &1452989293
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4094,6 +4044,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &1452989294
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452989287}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &1473314115
 GameObject:
   m_ObjectHideFlags: 0
@@ -4231,9 +4197,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1558296905}
+  - component: {fileID: 1558296907}
+  - component: {fileID: 1558296906}
   m_Layer: 0
   m_Name: Tile (34)
-  m_TagString: Untagged
+  m_TagString: Safe
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4253,6 +4221,53 @@ Transform:
   m_Father: {fileID: 665068021}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1558296906
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558296904}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3}
+  m_EdgeRadius: 0
+--- !u!50 &1558296907
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558296904}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1558663155
 GameObject:
   m_ObjectHideFlags: 0
@@ -4357,8 +4372,8 @@ GameObject:
   - component: {fileID: 1656067213}
   - component: {fileID: 1656067215}
   - component: {fileID: 1656067214}
-  - component: {fileID: 1656067217}
   - component: {fileID: 1656067218}
+  - component: {fileID: 1656067219}
   - component: {fileID: 1656067216}
   m_Layer: 0
   m_Name: RedPawn  (1)
@@ -4398,6 +4413,7 @@ MonoBehaviour:
   startPosIndex: 13
   colorID: 1
   speed: 10
+  safeZone: 0
 --- !u!212 &1656067215
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4471,32 +4487,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1656067217
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656067212}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &1656067218
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4513,6 +4503,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &1656067219
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656067212}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &1659989369
 GameObject:
   m_ObjectHideFlags: 0
@@ -4952,9 +4958,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1832546521}
+  - component: {fileID: 1832546523}
+  - component: {fileID: 1832546522}
   m_Layer: 0
   m_Name: Tile (21)
-  m_TagString: Untagged
+  m_TagString: Safe
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4974,6 +4982,53 @@ Transform:
   m_Father: {fileID: 665068021}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1832546522
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832546520}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3}
+  m_EdgeRadius: 0
+--- !u!50 &1832546523
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832546520}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1854424548
 GameObject:
   m_ObjectHideFlags: 0
@@ -5022,8 +5077,8 @@ GameObject:
   - component: {fileID: 1866314513}
   - component: {fileID: 1866314515}
   - component: {fileID: 1866314514}
-  - component: {fileID: 1866314517}
   - component: {fileID: 1866314518}
+  - component: {fileID: 1866314519}
   - component: {fileID: 1866314516}
   m_Layer: 0
   m_Name: YellowPawn (2)
@@ -5063,6 +5118,7 @@ MonoBehaviour:
   startPosIndex: 39
   colorID: 3
   speed: 10
+  safeZone: 0
 --- !u!212 &1866314515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5136,32 +5192,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1866314517
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866314512}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &1866314518
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5178,6 +5208,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &1866314519
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866314512}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &1885466585
 GameObject:
   m_ObjectHideFlags: 0
@@ -5220,8 +5266,8 @@ GameObject:
   - component: {fileID: 1902371240}
   - component: {fileID: 1902371242}
   - component: {fileID: 1902371241}
-  - component: {fileID: 1902371244}
   - component: {fileID: 1902371245}
+  - component: {fileID: 1902371246}
   - component: {fileID: 1902371243}
   m_Layer: 0
   m_Name: RedPawn  (3)
@@ -5261,6 +5307,7 @@ MonoBehaviour:
   startPosIndex: 13
   colorID: 1
   speed: 10
+  safeZone: 0
 --- !u!212 &1902371242
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5334,32 +5381,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1902371244
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1902371239}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5316667, y: 0.64}
-    newSize: {x: 0.5316667, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5316667, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!58 &1902371245
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5376,6 +5397,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!58 &1902371246
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902371239}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &1918133813
 GameObject:
   m_ObjectHideFlags: 0

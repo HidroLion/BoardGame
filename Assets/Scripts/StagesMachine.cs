@@ -21,34 +21,36 @@ public class StagesMachine : MonoBehaviour
     bool diceRolled;
     int extraTurns;
 
+    public PlayerClass[] Players { get => players; set => players = value; }
+
     private void Start()
     {
         diceRolled = false;
         timer = 0;
         extraTurns = 0;
 
-        players = new PlayerClass[4];
+        Players = new PlayerClass[4];
 
-        players[0] = new PlayerClass(bluePawns, 0);
-        players[1] = new PlayerClass(redPawns, 1);
-        players[2] = new PlayerClass(greenPawns, 2);
-        players[3] = new PlayerClass(yellowPawns, 3);
+        Players[0] = new PlayerClass(bluePawns, 0);
+        Players[1] = new PlayerClass(redPawns, 1);
+        Players[2] = new PlayerClass(greenPawns, 2);
+        Players[3] = new PlayerClass(yellowPawns, 3);
 
         for (int i = 0; i < 4; i++)
         {
-            players[i].InicializePlayer();
+            Players[i].InicializePlayer();
         }
 
         playerTurn = Random.Range(0, 4);
         newTurn = false;
 
-#if UNITY_EDITOR
-        Debug.Log(playerTurn);
-
         for (int i = 0; i < 4; i++)
         {
-            Debug.Log(players[playerTurn].AllPawns[i].name);
+            Players[playerTurn].AllPawns[i].SafeZone = true;
         }
+
+#if UNITY_EDITOR
+        Debug.Log("{HD} - Game Started: First Player Selected > Player " + playerTurn);
 #endif
     }
 
@@ -73,24 +75,24 @@ public class StagesMachine : MonoBehaviour
             {
                 if (!diceRolled)
                 {
-                    dice = Random.Range(3, 6) + 1;
+                    dice = Random.Range(4, 6) + 1;
                     Debug.Log("{HD} - Dice Rolled: " + dice);
                     diceRolled = true;
                 }
                 else if (diceRolled)
                 {
-                    if (players[playerTurn].JailPawns.Count != 0)
+                    if (Players[playerTurn].JailPawns.Count != 0)
                     {
                         if (dice == 6)
                         {
                             SelectPawn(true);
                         }
-                        else if (players[playerTurn].FreePawns.Count == 0)
+                        else if (Players[playerTurn].JailPawns.Count == 4)
                         {
                             ChangeTurn();
                             diceRolled = false;
                         }
-                        else if (players[playerTurn].FreePawns.Count != 0)
+                        else if (Players[playerTurn].JailPawns.Count <= 3)
                         {
                             SelectPawn();
                         }
@@ -122,8 +124,8 @@ public class StagesMachine : MonoBehaviour
                     diceRolled = false;
                     newTurn = false;
 
-                    players[playerTurn].JailPawns.RemoveAt(players[playerTurn].JailPawns.Count - 1);
-                    players[playerTurn].FreePawns.Add(pawnSelect);
+                    Players[playerTurn].JailPawns.RemoveAt(Players[playerTurn].JailPawns.Count - 1);
+                    Players[playerTurn].FreePawns.Add(pawnSelect);
 #if UNITY_EDITOR
                     Debug.Log("{HD} - Unlock: Pawn Selected - Player " + playerTurn + " Pawn: " + pawnSelect.name);
 #endif
@@ -174,11 +176,21 @@ public class StagesMachine : MonoBehaviour
 
     void ChangeTurn()
     {
+        for (int i = 0; i < 4; i++)
+        {
+            Players[playerTurn].AllPawns[i].SafeZone = false;
+        }
+
         diceRolled = false;
         newTurn = false;
 
         playerTurn++;
         if (playerTurn == 4)
             playerTurn = 0;
+
+        for (int i = 0; i < 4; i++)
+        {
+            Players[playerTurn].AllPawns[i].SafeZone = true;
+        }
     }
 }
