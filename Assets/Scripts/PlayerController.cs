@@ -20,12 +20,13 @@ public class PlayerController : MonoBehaviour
     int maxMoves;
 
     public bool Walking { get => walking; set => walking = value; }
+    public bool Unlock { get => unlock; set => unlock = value; }
 
     //Start Funtions
     private void Start()
     {
         currentMoves = 0;
-        unlock = false;
+        Unlock = false;
         LateStart();
     }
 
@@ -53,12 +54,12 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = list.Tiles[startPosIndex].position;
         movesCount = startPosIndex;
-        unlock = true;
+        Unlock = true;
     }
 
     public void TilesMovement(int moves)
     {
-        if (unlock)
+        if (Unlock)
         {
             maxMoves = moves;
             Walking = true;

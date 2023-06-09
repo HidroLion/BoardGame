@@ -19,9 +19,14 @@ public class StagesMachine : MonoBehaviour
     float timer;
     bool newTurn;
     bool diceRolled;
+    int extraTurns;
 
     private void Start()
     {
+        diceRolled = false;
+        timer = 0;
+        extraTurns = 0;
+
         players = new PlayerClass[4];
 
         players[0] = new PlayerClass(bluePawns, 0);
@@ -45,19 +50,6 @@ public class StagesMachine : MonoBehaviour
             Debug.Log(players[playerTurn].AllPawns[i].name);
         }
 #endif
-    }
-
-    public void RollDice()
-    {
-        dice = Random.Range(0, 7);
-
-        if(dice == 6)
-        {
-            if (players[playerTurn].JailPawns.Count != 0)
-            {
-                players[playerTurn].JailPawns.RemoveAt(players[playerTurn].JailPawns.Count - 1);
-            }
-        }
     }
 
     private void Update()
@@ -85,16 +77,27 @@ public class StagesMachine : MonoBehaviour
                     Debug.Log("{HD} - Dice Rolled: " + dice);
                     diceRolled = true;
                 }
-
-                if (players[playerTurn].JailPawns.Count == 4)
+                else if (diceRolled)
                 {
-                    if(dice == 6)
+                    if (players[playerTurn].JailPawns.Count != 0)
                     {
-                        SelectPawn(true);                       
+                        if (dice == 6)
+                        {
+                            SelectPawn(true);
+                        }
+                        else if (players[playerTurn].FreePawns.Count == 0)
+                        {
+                            ChangeTurn();
+                            diceRolled = false;
+                        }
+                        else if (players[playerTurn].FreePawns.Count != 0)
+                        {
+                            SelectPawn();
+                        }
                     }
                     else
                     {
-                        ChangeTurn();
+                        SelectPawn();
                     }
                 }
             }
@@ -112,8 +115,56 @@ public class StagesMachine : MonoBehaviour
             if (hit.collider.CompareTag("Player " + playerTurn))
             {
                 pawnSelect = hit.collider.GetComponent<PlayerController>();
-                pawnSelect.FirstMove();
 
+                if (!pawnSelect.Unlock)
+                {
+                    pawnSelect.FirstMove();
+                    diceRolled = false;
+                    newTurn = false;
+
+                    players[playerTurn].JailPawns.RemoveAt(players[playerTurn].JailPawns.Count - 1);
+                    players[playerTurn].FreePawns.Add(pawnSelect);
+#if UNITY_EDITOR
+                    Debug.Log("{HD} - Unlock: Pawn Selected - Player " + playerTurn + " Pawn: " + pawnSelect.name);
+#endif
+                }
+#if UNITY_EDITOR
+                else
+                {
+                    Debug.Log("{HD} - Unlock: Pawn Selected Not Avaliable - Player " + playerTurn + " Unlocked: " + pawnSelect.name);
+                }
+#endif
+
+            }
+        }
+    }
+
+    void SelectPawn()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.CompareTag("Player " + playerTurn))
+            {
+                pawnSelect = hit.collider.GetComponent<PlayerController>();
+
+                if (pawnSelect.Unlock)
+                {
+                    pawnSelect.TilesMovement(dice);
+                    if(dice == 6 && extraTurns < 2)
+                    {
+                        diceRolled = false;
+                        extraTurns++;
+                    }
+                    else
+                    {
+                        ChangeTurn();
+                        extraTurns = 0;
+                    }
+                }
 #if UNITY_EDITOR
                 Debug.Log("{HD} - Move: Pawn Selected - Player " + playerTurn + " Pawn: " + pawnSelect.name);
 #endif
@@ -127,7 +178,7 @@ public class StagesMachine : MonoBehaviour
         newTurn = false;
 
         playerTurn++;
-        if (playerTurn == 5)
+        if (playerTurn == 4)
             playerTurn = 0;
     }
 }
