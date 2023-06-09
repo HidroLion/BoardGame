@@ -11,8 +11,14 @@ public class StagesMachine : MonoBehaviour
     [SerializeField] PlayerController[] yellowPawns;
 
     PlayerClass[] players;
+    PlayerController pawnSelect;
     int playerTurn;
     int dice;
+
+    [SerializeField] float maxTime;
+    float timer;
+    bool newTurn;
+    bool diceRolled;
 
     private void Start()
     {
@@ -29,6 +35,7 @@ public class StagesMachine : MonoBehaviour
         }
 
         playerTurn = Random.Range(0, 4);
+        newTurn = false;
 
 #if UNITY_EDITOR
         Debug.Log(playerTurn);
@@ -55,9 +62,72 @@ public class StagesMachine : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(!newTurn)
+            timer += Time.deltaTime;
+
+        if(timer >= maxTime && !newTurn)
         {
-            RollDice();
+            timer = 0;
+            newTurn = true;
+
+#if UNITY_EDITOR
+            Debug.Log("{HD} - Turn Started: Player " + playerTurn);
+#endif
         }
+
+        if (newTurn)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                if (!diceRolled)
+                {
+                    dice = Random.Range(3, 6) + 1;
+                    Debug.Log("{HD} - Dice Rolled: " + dice);
+                    diceRolled = true;
+                }
+
+                if (players[playerTurn].JailPawns.Count == 4)
+                {
+                    if(dice == 6)
+                    {
+                        SelectPawn(true);                       
+                    }
+                    else
+                    {
+                        ChangeTurn();
+                    }
+                }
+            }
+        }
+    }
+
+    void SelectPawn(bool unlocked)
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.CompareTag("Player " + playerTurn))
+            {
+                pawnSelect = hit.collider.GetComponent<PlayerController>();
+                pawnSelect.FirstMove();
+
+#if UNITY_EDITOR
+                Debug.Log("{HD} - Move: Pawn Selected - Player " + playerTurn + " Pawn: " + pawnSelect.name);
+#endif
+            }
+        }
+    }
+
+    void ChangeTurn()
+    {
+        diceRolled = false;
+        newTurn = false;
+
+        playerTurn++;
+        if (playerTurn == 5)
+            playerTurn = 0;
     }
 }
