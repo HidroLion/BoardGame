@@ -22,11 +22,13 @@ public class PlayerController : MonoBehaviour
     int currentMoves;
     int maxMoves;
 
-    public bool safeZone;
+    bool safeZone;
+    bool activePlayer;
 
     public bool Walking { get => walking; set => walking = value; }
     public bool Unlock { get => unlock; set => unlock = value; }
     public bool SafeZone { get => safeZone; set => safeZone = value; }
+    public bool ActivePlayer { get => activePlayer; set => activePlayer = value; }
 
     //Start Funtions
     private void Start()
@@ -113,7 +115,8 @@ public class PlayerController : MonoBehaviour
             case 0:
                 if(collision.CompareTag("Player 1") || collision.CompareTag("Player 2") || collision.CompareTag("Player 3"))
                 {
-                    if(!collision.GetComponent<PlayerController>().SafeZone)
+                    if(!collision.GetComponent<PlayerController>().SafeZone 
+                        && !collision.GetComponent<PlayerController>().ActivePlayer)
                         collision.GetComponent<PlayerController>().Dead();
                 }
                 break;
@@ -121,7 +124,8 @@ public class PlayerController : MonoBehaviour
             case 1:
                 if (collision.CompareTag("Player 0") || collision.CompareTag("Player 2") || collision.CompareTag("Player 3"))
                 {
-                    if (!collision.GetComponent<PlayerController>().SafeZone)
+                    if (!collision.GetComponent<PlayerController>().SafeZone
+                        && !collision.GetComponent<PlayerController>().ActivePlayer)
                         collision.GetComponent<PlayerController>().Dead();
                 }
                 break;
@@ -129,7 +133,8 @@ public class PlayerController : MonoBehaviour
             case 2:
                 if (collision.CompareTag("Player 0") || collision.CompareTag("Player 1") || collision.CompareTag("Player 3"))
                 {
-                    if (!collision.GetComponent<PlayerController>().SafeZone)
+                    if (!collision.GetComponent<PlayerController>().SafeZone
+                        && !collision.GetComponent<PlayerController>().ActivePlayer)
                         collision.GetComponent<PlayerController>().Dead();
                 }
                 break;
@@ -137,7 +142,8 @@ public class PlayerController : MonoBehaviour
             case 3:
                 if (collision.CompareTag("Player 0") || collision.CompareTag("Player 1") || collision.CompareTag("Player 2"))
                 {
-                    if (!collision.GetComponent<PlayerController>().SafeZone)
+                    if (!collision.GetComponent<PlayerController>().SafeZone
+                        && !collision.GetComponent<PlayerController>().ActivePlayer)
                         collision.GetComponent<PlayerController>().Dead();
                 }
                 break;

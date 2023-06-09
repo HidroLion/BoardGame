@@ -46,7 +46,7 @@ public class StagesMachine : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
-            Players[playerTurn].AllPawns[i].SafeZone = true;
+            Players[playerTurn].AllPawns[i].ActivePlayer = true;
         }
 
 #if UNITY_EDITOR
@@ -178,7 +178,7 @@ public class StagesMachine : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            Players[playerTurn].AllPawns[i].SafeZone = false;
+            Players[playerTurn].AllPawns[i].ActivePlayer = false;
         }
 
         diceRolled = false;
@@ -190,7 +190,7 @@ public class StagesMachine : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
-            Players[playerTurn].AllPawns[i].SafeZone = true;
+            Players[playerTurn].AllPawns[i].ActivePlayer = true;
         }
     }
 }
