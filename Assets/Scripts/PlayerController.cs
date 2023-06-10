@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int colorID; //Array Position of Colors Tiles Lists
     [SerializeField] float speed; //Movement Speed: Recomended 10
 
-    //CircleCollider2D circleCollider;
+    CircleCollider2D circleCollider;
     Rigidbody2D rb2D;
     SpriteRenderer spriteRenderer;
     Vector3 jailPosition;
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     Transform[] playerRoute;
     bool walking;
     bool unlock;
+    bool winner;
 
     int currentMoves;
     int maxMoves;
@@ -33,7 +34,8 @@ public class PlayerController : MonoBehaviour
     public bool Unlock { get => unlock; set => unlock = value; }
     public bool SafeZone { get => safeZone; set => safeZone = value; }
     public bool ActivePlayer { get => activePlayer; set => activePlayer = value; }
-    //public CircleCollider2D CircleCollider { get => circleCollider; set => circleCollider = value; }
+    public CircleCollider2D CircleCollider { get => circleCollider; set => circleCollider = value; }
+    public bool Winner { get => winner; set => winner = value; }
 
     //Start Funtions
     private void Start()
@@ -41,7 +43,7 @@ public class PlayerController : MonoBehaviour
         currentMoves = 0;
         Unlock = false;
 
-        //CircleCollider = gameObject.GetComponent<CircleCollider2D>();
+        CircleCollider = gameObject.GetComponent<CircleCollider2D>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
@@ -90,8 +92,17 @@ public class PlayerController : MonoBehaviour
 
     public void Movement()
     {
-        if (currentMoves + maxMoves < 56)
+        if (currentMoves + maxMoves <= 56)
         {
+            if (maxMoves <= 1)
+            {
+                CircleCollider.enabled = true;
+            }
+            else if (maxMoves > 1)
+            {
+                CircleCollider.enabled = false;
+            }
+
             //circleCollider.enabled = false;
             transform.position =
                 Vector2.MoveTowards
@@ -100,27 +111,11 @@ public class PlayerController : MonoBehaviour
             {
                 currentMoves++;
                 maxMoves--;
+
                 if (maxMoves == 0)
                 {
                     Walking = false;
                     gameCotroller.ChangeTurn();
-                }
-            }
-        }
-
-        else if(currentMoves + maxMoves == 56)
-        {
-            transform.position =
-                Vector2.MoveTowards
-                    (transform.position, playerRoute[currentMoves + 1].position, speed * Time.deltaTime);
-            if (transform.position == playerRoute[currentMoves + 1].position)
-            {
-                currentMoves++;
-                maxMoves--;
-                if (maxMoves == 0)
-                {
-                    Walking = false;
-                    PawnWin();
                 }
             }
         }
@@ -140,7 +135,7 @@ public class PlayerController : MonoBehaviour
             collision.GetComponent<PlayerController>().SafeZone = true;
         }
 
-        if (ActivePlayer && !SafeZone && !Walking)
+        if (ActivePlayer && !SafeZone)
         {
             switch (colorID)
             {
@@ -200,6 +195,7 @@ public class PlayerController : MonoBehaviour
     {
         Unlock = false;
         transform.position = jailPosition;
+        currentMoves = 0;
         gameCotroller.Players[colorID].JailPawns.Add(gameObject.GetComponent<PlayerController>());
 
 #if UNITY_EDITOR
@@ -210,9 +206,12 @@ public class PlayerController : MonoBehaviour
     void PawnWin()
     {
         gameCotroller.Players[colorID].WinPawns.Add(gameObject.GetComponent<PlayerController>());
+#if UNITY_EDITOR
+        Debug.Log("{HD} - Win: Pawn Winner > " + gameCotroller.Players[colorID].WinPawns.Count + colorID);
+#endif
         if (gameCotroller.Players[colorID].WinPawns.Count == 4)
         {
-            gameCotroller.Players[colorID].Winner = true;
+            Winner = true;
 #if UNITY_EDITOR
             Debug.Log("{HD} - Win: Player Winner > " + colorID);
 #endif
@@ -231,5 +230,8 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.sortingOrder = 1;
         else if (!ActivePlayer)
             spriteRenderer.sortingOrder = 0;
+
+        if(currentMoves == 56 && !Winner)
+            PawnWin();
     }
 }
