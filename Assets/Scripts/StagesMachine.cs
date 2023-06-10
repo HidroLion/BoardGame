@@ -61,6 +61,11 @@ public class StagesMachine : MonoBehaviour
 
         if(timer >= maxTime && !newTurn)
         {
+            for (int i = 0; i < 4; i++)
+            {
+                Players[playerTurn].AllPawns[i].ActivePlayer = true;
+            }
+
             timer = 0;
             newTurn = true;
 
@@ -71,6 +76,21 @@ public class StagesMachine : MonoBehaviour
 
         if (newTurn)
         {
+#if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                dice = 6;
+                Debug.Log("{HD} - Dice Rolled: " + dice);
+                diceRolled = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                dice = 1;
+                Debug.Log("{HD} - Dice Rolled: " + dice);
+                diceRolled = true;
+            }
+#endif
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 if (!diceRolled)
@@ -159,14 +179,13 @@ public class StagesMachine : MonoBehaviour
                 if (pawnSelect.Unlock)
                 {
                     pawnSelect.TilesMovement(dice);
-                    if(dice == 6 && extraTurns < 2)
+                    if(dice == 6 && extraTurns < 3)
                     {
                         diceRolled = false;
                         extraTurns++;
                     }
                     else
                     {
-                        ChangeTurn();
                         extraTurns = 0;
                     }
                 }
@@ -177,23 +196,27 @@ public class StagesMachine : MonoBehaviour
         }
     }
 
-    void ChangeTurn()
-    {        
+    public void ChangeTurn()
+    {
+        /*
         for (int i = 0; i < 4; i++)
         {
-            Players[playerTurn].AllPawns[i].ActivePlayer = false;
+            Players[playerTurn].AllPawns[i].CircleCollider.enabled = true;
         }
-
-        diceRolled = false;
-        newTurn = false;
-
-        playerTurn++;
-        if (playerTurn == 4)
-            playerTurn = 0;
-
-        for (int i = 0; i < 4; i++)
+        */
+        if (dice != 6 || extraTurns == 2)
         {
-            Players[playerTurn].AllPawns[i].ActivePlayer = true;
+            for (int i = 0; i < 4; i++)
+            {
+                Players[playerTurn].AllPawns[i].ActivePlayer = false;
+            }
+
+            diceRolled = false;
+            newTurn = false;
+
+            playerTurn++;
+            if (playerTurn == 4)
+                playerTurn = 0;
         }
     }
 }

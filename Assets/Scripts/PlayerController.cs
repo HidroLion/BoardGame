@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SearchService;
 
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int colorID; //Array Position of Colors Tiles Lists
     [SerializeField] float speed; //Movement Speed: Recomended 10
 
-    CircleCollider2D circleCollider;
+    //CircleCollider2D circleCollider;
     Rigidbody2D rb2D;
     SpriteRenderer spriteRenderer;
     Vector3 jailPosition;
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
     public bool Unlock { get => unlock; set => unlock = value; }
     public bool SafeZone { get => safeZone; set => safeZone = value; }
     public bool ActivePlayer { get => activePlayer; set => activePlayer = value; }
-    public CircleCollider2D CircleCollider { get => circleCollider; set => circleCollider = value; }
+    //public CircleCollider2D CircleCollider { get => circleCollider; set => circleCollider = value; }
 
     //Start Funtions
     private void Start()
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
         currentMoves = 0;
         Unlock = false;
 
-        CircleCollider = gameObject.GetComponent<CircleCollider2D>();
+        //CircleCollider = gameObject.GetComponent<CircleCollider2D>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
@@ -91,6 +92,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentMoves + maxMoves < 56)
         {
+            //circleCollider.enabled = false;
             transform.position =
                 Vector2.MoveTowards
                     (transform.position, playerRoute[currentMoves + 1].position, speed * Time.deltaTime);
@@ -100,8 +102,8 @@ public class PlayerController : MonoBehaviour
                 maxMoves--;
                 if (maxMoves == 0)
                 {
-                    circleCollider.enabled = true;
                     Walking = false;
+                    gameCotroller.ChangeTurn();
                 }
             }
         }
@@ -138,7 +140,7 @@ public class PlayerController : MonoBehaviour
             collision.GetComponent<PlayerController>().SafeZone = true;
         }
 
-        if (activePlayer && safeZone)
+        if (ActivePlayer && !SafeZone && !Walking)
         {
             switch (colorID)
             {
