@@ -198,6 +198,10 @@ public class PlayerController : MonoBehaviour
         currentMoves = 0;
         gameCotroller.Players[colorID].JailPawns.Add(gameObject.GetComponent<PlayerController>());
 
+        gameCotroller.PlayerTurn--;
+        if (gameCotroller.PlayerTurn == -1)
+            gameCotroller.PlayerTurn = 0;
+
 #if UNITY_EDITOR
         Debug.Log("{HD} - Kill: Pawn Dead - Player " + colorID + " Count: " + gameCotroller.Players[colorID].JailPawns.Count);
 #endif
@@ -206,6 +210,9 @@ public class PlayerController : MonoBehaviour
     void PawnWin()
     {
         gameCotroller.Players[colorID].WinPawns.Add(gameObject.GetComponent<PlayerController>());
+        gameCotroller.PlayerTurn--;
+        if (gameCotroller.PlayerTurn == -1)
+            gameCotroller.PlayerTurn = 0;
 #if UNITY_EDITOR
         Debug.Log("{HD} - Win: Pawn Winner > " + gameCotroller.Players[colorID].WinPawns.Count + colorID);
 #endif

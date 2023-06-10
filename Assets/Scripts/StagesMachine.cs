@@ -27,6 +27,7 @@ public class StagesMachine : MonoBehaviour
     public PlayerClass[] Players { get => players; set => players = value; }
     public int Dice { get => dice; set => dice = value; }
     public bool GameFinish { get => gameFinish; set => gameFinish = value; }
+    public int PlayerTurn { get => playerTurn; set => playerTurn = value; }
 
     private void Start()
     {
@@ -48,17 +49,17 @@ public class StagesMachine : MonoBehaviour
             Players[i].InicializePlayer();
         }
 
-        playerTurn = Random.Range(0, 4);
+        PlayerTurn = Random.Range(0, 4);
         newTurn = false;
 
         for (int i = 0; i < 4; i++)
         {
-            Players[playerTurn].AllPawns[i].ActivePlayer = true;
+            Players[PlayerTurn].AllPawns[i].ActivePlayer = true;
         }
 
-        managerUI.UpdateUI(playerTurn);
+        managerUI.UpdateUI(PlayerTurn);
 #if UNITY_EDITOR
-        Debug.Log("{HD} - Game Started: First Player Selected > Player " + playerTurn);
+        Debug.Log("{HD} - Game Started: First Player Selected > Player " + PlayerTurn);
 #endif
     }
 
@@ -73,15 +74,15 @@ public class StagesMachine : MonoBehaviour
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    Players[playerTurn].AllPawns[i].ActivePlayer = true;
+                    Players[PlayerTurn].AllPawns[i].ActivePlayer = true;
                 }
 
                 timer = 0;
                 newTurn = true;
-                managerUI.UpdateUI(playerTurn);
+                managerUI.UpdateUI(PlayerTurn);
                 managerUI.ReadyText("Roll The Dice");
 #if UNITY_EDITOR
-                Debug.Log("{HD} - Turn Started: Player " + playerTurn);
+                Debug.Log("{HD} - Turn Started: Player " + PlayerTurn);
 #endif
             }
 
@@ -102,7 +103,7 @@ public class StagesMachine : MonoBehaviour
                     diceRolled = true;
                 }
 #endif
-                if (Players[playerTurn].WinPawns.Count == 4)
+                if (Players[PlayerTurn].WinPawns.Count == 4)
                     ChangeTurn();
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -118,20 +119,20 @@ public class StagesMachine : MonoBehaviour
                     }
                     else if (diceRolled)
                     {
-                        if (Players[playerTurn].JailPawns.Count != 0)
+                        if (Players[PlayerTurn].JailPawns.Count != 0)
                         {
                             if (dice == 6)
                             {
                                 managerUI.ReadyText("Unlock a Pawn");
                                 SelectPawn(true);
                             }
-                            else if (Players[playerTurn].JailPawns.Count == 4)
+                            else if (Players[PlayerTurn].JailPawns.Count == 4)
                             {
                                 managerUI.ReadyText("Skip Turn");
                                 ChangeTurn();
                                 diceRolled = false;
                             }
-                            else if (Players[playerTurn].JailPawns.Count <= 3)
+                            else if (Players[PlayerTurn].JailPawns.Count <= 3)
                             {
                                 managerUI.ReadyText("Select a Pawn");
                                 SelectPawn();
@@ -156,7 +157,7 @@ public class StagesMachine : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (hit.collider.CompareTag("Player " + playerTurn))
+            if (hit.collider.CompareTag("Player " + PlayerTurn))
             {
                 pawnSelect = hit.collider.GetComponent<PlayerController>();
 
@@ -166,17 +167,17 @@ public class StagesMachine : MonoBehaviour
                     diceRolled = false;
                     newTurn = false;
 
-                    Players[playerTurn].JailPawns.RemoveAt(Players[playerTurn].JailPawns.Count - 1);
+                    Players[PlayerTurn].JailPawns.RemoveAt(Players[PlayerTurn].JailPawns.Count - 1);
                     managerUI.ReadyText("Pawn Unlocked... Roll Again");
 #if UNITY_EDITOR
-                    Debug.Log("{HD} - Unlock: Pawn Selected - Player " + playerTurn + " Pawn: " + pawnSelect.name);
+                    Debug.Log("{HD} - Unlock: Pawn Selected - Player " + PlayerTurn + " Pawn: " + pawnSelect.name);
 #endif
                 }
 #if UNITY_EDITOR
                 else
                 {
                     managerUI.ReadyText("Unlock a Pawn!");
-                    Debug.Log("{HD} - Unlock: Pawn Selected Not Avaliable - Player " + playerTurn + " Unlocked: " + pawnSelect.name);
+                    Debug.Log("{HD} - Unlock: Pawn Selected Not Avaliable - Player " + PlayerTurn + " Unlocked: " + pawnSelect.name);
                 }
 #endif
 
@@ -192,7 +193,7 @@ public class StagesMachine : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (hit.collider.CompareTag("Player " + playerTurn))
+            if (hit.collider.CompareTag("Player " + PlayerTurn))
             {
                 pawnSelect = hit.collider.GetComponent<PlayerController>();
 
@@ -211,7 +212,7 @@ public class StagesMachine : MonoBehaviour
                 }
                 managerUI.ReadyText("Moving Pawn...");
 #if UNITY_EDITOR
-                Debug.Log("{HD} - Move: Pawn Selected - Player " + playerTurn + " Pawn: " + pawnSelect.name);
+                Debug.Log("{HD} - Move: Pawn Selected - Player " + PlayerTurn + " Pawn: " + pawnSelect.name);
 #endif
             }
         }
@@ -229,15 +230,15 @@ public class StagesMachine : MonoBehaviour
         {
             for (int i = 0; i < 4; i++)
             {
-                Players[playerTurn].AllPawns[i].ActivePlayer = false;
+                Players[PlayerTurn].AllPawns[i].ActivePlayer = false;
             }
 
             diceRolled = false;
             newTurn = false;
 
-            playerTurn++;
-            if (playerTurn == 4)
-                playerTurn = 0;
+            PlayerTurn++;
+            if (PlayerTurn == 4)
+                PlayerTurn = 0;
         }
     }
 }
