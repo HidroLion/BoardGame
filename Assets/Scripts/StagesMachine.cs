@@ -76,6 +76,10 @@ public class StagesMachine : MonoBehaviour
                 if (!diceRolled)
                 {
                     dice = Random.Range(4, 6) + 1;
+
+                    if (dice == 5)
+                        dice = 1;
+
                     Debug.Log("{HD} - Dice Rolled: " + dice);
                     diceRolled = true;
                 }
@@ -125,7 +129,6 @@ public class StagesMachine : MonoBehaviour
                     newTurn = false;
 
                     Players[playerTurn].JailPawns.RemoveAt(Players[playerTurn].JailPawns.Count - 1);
-                    Players[playerTurn].FreePawns.Add(pawnSelect);
 #if UNITY_EDITOR
                     Debug.Log("{HD} - Unlock: Pawn Selected - Player " + playerTurn + " Pawn: " + pawnSelect.name);
 #endif

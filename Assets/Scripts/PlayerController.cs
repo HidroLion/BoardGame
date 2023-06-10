@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int colorID; //Array Position of Colors Tiles Lists
     [SerializeField] float speed; //Movement Speed: Recomended 10
 
+    CircleCollider2D circleCollider;
+    Rigidbody2D rb2D;
+    SpriteRenderer spriteRenderer;
     Vector3 jailPosition;
 
     StagesMachine gameCotroller;
@@ -35,6 +38,10 @@ public class PlayerController : MonoBehaviour
     {
         currentMoves = 0;
         Unlock = false;
+
+        circleCollider = gameObject.GetComponent<CircleCollider2D>();
+        rb2D = gameObject.GetComponent<Rigidbody2D>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         jailPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
@@ -81,7 +88,8 @@ public class PlayerController : MonoBehaviour
 
     public void Movement()
     {
-        if(currentMoves + maxMoves <= 56)
+        circleCollider.enabled = false;
+        if (currentMoves + maxMoves < 56)
         {
             transform.position =
                 Vector2.MoveTowards
@@ -91,7 +99,26 @@ public class PlayerController : MonoBehaviour
                 currentMoves++;
                 maxMoves--;
                 if (maxMoves == 0)
+                {
                     Walking = false;
+                    circleCollider.enabled = true;
+                }
+            }
+        }
+        else if(currentMoves + maxMoves == 56)
+        {
+            transform.position =
+                Vector2.MoveTowards
+                    (transform.position, playerRoute[currentMoves + 1].position, speed * Time.deltaTime);
+            if (transform.position == playerRoute[currentMoves + 1].position)
+            {
+                currentMoves++;
+                maxMoves--;
+                if (maxMoves == 0)
+                {
+                    Walking = false;
+                    PawnWin();
+                }
             }
         }
     }
@@ -110,43 +137,46 @@ public class PlayerController : MonoBehaviour
             collision.GetComponent<PlayerController>().SafeZone = true;
         }
 
-        switch (colorID)
+        if (activePlayer)
         {
-            case 0:
-                if(collision.CompareTag("Player 1") || collision.CompareTag("Player 2") || collision.CompareTag("Player 3"))
-                {
-                    if(!collision.GetComponent<PlayerController>().SafeZone 
-                        && !collision.GetComponent<PlayerController>().ActivePlayer)
-                        collision.GetComponent<PlayerController>().Dead();
-                }
-                break;
+            switch (colorID)
+            {
+                case 0:
+                    if (collision.CompareTag("Player 1") || collision.CompareTag("Player 2") || collision.CompareTag("Player 3"))
+                    {
+                        if (!collision.GetComponent<PlayerController>().SafeZone
+                            && !collision.GetComponent<PlayerController>().ActivePlayer)
+                            collision.GetComponent<PlayerController>().Dead();
+                    }
+                    break;
 
-            case 1:
-                if (collision.CompareTag("Player 0") || collision.CompareTag("Player 2") || collision.CompareTag("Player 3"))
-                {
-                    if (!collision.GetComponent<PlayerController>().SafeZone
-                        && !collision.GetComponent<PlayerController>().ActivePlayer)
-                        collision.GetComponent<PlayerController>().Dead();
-                }
-                break;
+                case 1:
+                    if (collision.CompareTag("Player 0") || collision.CompareTag("Player 2") || collision.CompareTag("Player 3"))
+                    {
+                        if (!collision.GetComponent<PlayerController>().SafeZone
+                            && !collision.GetComponent<PlayerController>().ActivePlayer)
+                            collision.GetComponent<PlayerController>().Dead();
+                    }
+                    break;
 
-            case 2:
-                if (collision.CompareTag("Player 0") || collision.CompareTag("Player 1") || collision.CompareTag("Player 3"))
-                {
-                    if (!collision.GetComponent<PlayerController>().SafeZone
-                        && !collision.GetComponent<PlayerController>().ActivePlayer)
-                        collision.GetComponent<PlayerController>().Dead();
-                }
-                break;
+                case 2:
+                    if (collision.CompareTag("Player 0") || collision.CompareTag("Player 1") || collision.CompareTag("Player 3"))
+                    {
+                        if (!collision.GetComponent<PlayerController>().SafeZone
+                            && !collision.GetComponent<PlayerController>().ActivePlayer)
+                            collision.GetComponent<PlayerController>().Dead();
+                    }
+                    break;
 
-            case 3:
-                if (collision.CompareTag("Player 0") || collision.CompareTag("Player 1") || collision.CompareTag("Player 2"))
-                {
-                    if (!collision.GetComponent<PlayerController>().SafeZone
-                        && !collision.GetComponent<PlayerController>().ActivePlayer)
-                        collision.GetComponent<PlayerController>().Dead();
-                }
-                break;
+                case 3:
+                    if (collision.CompareTag("Player 0") || collision.CompareTag("Player 1") || collision.CompareTag("Player 2"))
+                    {
+                        if (!collision.GetComponent<PlayerController>().SafeZone
+                            && !collision.GetComponent<PlayerController>().ActivePlayer)
+                            collision.GetComponent<PlayerController>().Dead();
+                    }
+                    break;
+            }
         }
     }
 
@@ -170,8 +200,20 @@ public class PlayerController : MonoBehaviour
         gameCotroller.Players[colorID].JailPawns.Add(gameObject.GetComponent<PlayerController>());
 
 #if UNITY_EDITOR
-        Debug.Log("{HD} - Kill: Pawn Dead - Player " + colorID);
+        Debug.Log("{HD} - Kill: Pawn Dead - Player " + colorID + " Count: " + gameCotroller.Players[colorID].JailPawns.Count);
 #endif
+    }
+     
+    void PawnWin()
+    {
+        gameCotroller.Players[colorID].WinPawns.Add(gameObject.GetComponent<PlayerController>());
+        if (gameCotroller.Players[colorID].WinPawns.Count == 4)
+        {
+            gameCotroller.Players[colorID].Winner = true;
+#if UNITY_EDITOR
+            Debug.Log("{HD} - Win: Player Winner > " + colorID);
+#endif
+        }
     }
 
     //General Functions
@@ -181,5 +223,10 @@ public class PlayerController : MonoBehaviour
         {
             Movement();
         }
+
+        if(ActivePlayer)
+            spriteRenderer.sortingOrder = 1;
+        else if (!ActivePlayer)
+            spriteRenderer.sortingOrder = 0;
     }
 }
