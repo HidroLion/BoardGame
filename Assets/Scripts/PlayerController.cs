@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public bool Unlock { get => unlock; set => unlock = value; }
     public bool SafeZone { get => safeZone; set => safeZone = value; }
     public bool ActivePlayer { get => activePlayer; set => activePlayer = value; }
+    public CircleCollider2D CircleCollider { get => circleCollider; set => circleCollider = value; }
 
     //Start Funtions
     private void Start()
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour
         currentMoves = 0;
         Unlock = false;
 
-        circleCollider = gameObject.GetComponent<CircleCollider2D>();
+        CircleCollider = gameObject.GetComponent<CircleCollider2D>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
@@ -88,7 +89,6 @@ public class PlayerController : MonoBehaviour
 
     public void Movement()
     {
-        circleCollider.enabled = false;
         if (currentMoves + maxMoves < 56)
         {
             transform.position =
@@ -100,11 +100,12 @@ public class PlayerController : MonoBehaviour
                 maxMoves--;
                 if (maxMoves == 0)
                 {
-                    Walking = false;
                     circleCollider.enabled = true;
+                    Walking = false;
                 }
             }
         }
+
         else if(currentMoves + maxMoves == 56)
         {
             transform.position =
@@ -137,7 +138,7 @@ public class PlayerController : MonoBehaviour
             collision.GetComponent<PlayerController>().SafeZone = true;
         }
 
-        if (activePlayer)
+        if (activePlayer && safeZone)
         {
             switch (colorID)
             {

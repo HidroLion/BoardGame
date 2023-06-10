@@ -178,7 +178,7 @@ public class StagesMachine : MonoBehaviour
     }
 
     void ChangeTurn()
-    {
+    {        
         for (int i = 0; i < 4; i++)
         {
             Players[playerTurn].AllPawns[i].ActivePlayer = false;
