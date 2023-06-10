@@ -33,6 +33,10 @@ public class GameMode : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
     private void Update()
     {
         if (teamMode)
