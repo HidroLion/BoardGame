@@ -9,3 +9,6 @@ In case you require improvements, contact the developer, and keep the GitHub rep
 To report a bug, contact the developer and after 7 working days you will be sent a notice to update the GitHub repository.
 
 Thank you for trusting "HidroLion" and enjoy your game.
+
+Repository Link:
+https://github.com/HidroLion/BoardGame
