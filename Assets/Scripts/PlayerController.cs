@@ -12,23 +12,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int colorID; //Array Position of Colors Tiles Lists
     [SerializeField] float speed; //Movement Speed: Recomended 10
 
-    CircleCollider2D circleCollider;
-    Rigidbody2D rb2D;
-    SpriteRenderer spriteRenderer;
-    Vector3 jailPosition;
+    CircleCollider2D circleCollider; //Collider Refference
+    Rigidbody2D rb2D; //Rigidbody Refference
+    SpriteRenderer spriteRenderer; //Sprite Renderer Refference
+    Vector3 jailPosition; //Jail Pawn Position = Start Position.
 
-    StagesMachine gameCotroller;
-    int movesCount;
-    Transform[] playerRoute;
-    bool walking;
-    bool unlock;
-    bool winner;
+    StagesMachine gameCotroller; //Polymorphism > StageMachine
+    int movesCount; //Number of Movements that the Pawn will do
+    Transform[] playerRoute; //List of tiles in the Playrr Route > Depending of the colorID
+    bool walking; //Pawn is Moving = Tre
+    bool unlock; //Pawn is in the Table = True
+    bool winner; //Pawn is in the Goal Position = True
 
-    int currentMoves;
-    int maxMoves;
+    int currentMoves; //Number of Movements in Total (0 - 56)
+    int maxMoves; //Number of Movements in each turn (1 - 6)
 
-    bool safeZone;
-    bool activePlayer;
+    bool safeZone; //Player Locked
+    bool activePlayer; //Player have the turn
 
     public bool Walking { get => walking; set => walking = value; }
     public bool Unlock { get => unlock; set => unlock = value; }
@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
         LateStart();
     }
 
+    //Strat Delayed for evit Missing errors
     void LateStart()
     {
         movesCount = startPosIndex;
@@ -74,14 +75,14 @@ public class PlayerController : MonoBehaviour
     }
 
     //Movement Functions
-    public void FirstMove()
+    public void FirstMove() //Moves the Player Until the Home Tile
     {
         transform.position = list.Tiles[startPosIndex].position;
         movesCount = startPosIndex;
         Unlock = true;
     }
 
-    public void TilesMovement(int moves)
+    public void TilesMovement(int moves) //Moves the player according the Dice result
     {
         if (Unlock)
         {
@@ -90,7 +91,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Movement()
+    public void Movement() //Moves the player in each turn and setup the State of the game
     {
         if (currentMoves + maxMoves <= 56)
         {
@@ -122,22 +123,22 @@ public class PlayerController : MonoBehaviour
     }
 
     //Kill and Die Funtions
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) //Detect Collisions
     {
-        if (collision.CompareTag("Safe"))
+        if (collision.CompareTag("Safe")) //If the player Touches a Safe Zone, SafeZone is True.
         {
             SafeZone = true;
         }
 
-        if (collision.CompareTag("Player " + colorID))
+        if (collision.CompareTag("Player " + colorID)) //If the player Touches anothe Pawn with same color, SafeZone is True.
         {
             SafeZone = true;
             collision.GetComponent<PlayerController>().SafeZone = true;
         }
 
-        if (ActivePlayer && !SafeZone)
+        if (ActivePlayer && !SafeZone) //Is player has the turn active this colliders.
         {
-            switch (colorID)
+            switch (colorID) //Controls when the player touches another Pawn, depending of the color.
             {
                 case 0:
                     if (collision.CompareTag("Player 1") || collision.CompareTag("Player 2") || collision.CompareTag("Player 3"))
@@ -178,9 +179,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision) //Disable de Safe Zones when the players separate or leave the safe zone
     {
-        if (collision.CompareTag("Safe"))
+        if (collision.CompareTag("Safe")) 
         {
             SafeZone = false;
         }
@@ -191,7 +192,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Dead()
+    public void Dead() //Player Dead (This Function is activated by other Pawn)
     {
         Unlock = false;
         transform.position = jailPosition;
@@ -207,7 +208,7 @@ public class PlayerController : MonoBehaviour
 #endif
     }
      
-    void PawnWin()
+    void PawnWin() //Pawn Win Conditions
     {
         gameCotroller.Players[colorID].WinPawns.Add(gameObject.GetComponent<PlayerController>());
         gameCotroller.PlayerTurn--;
@@ -226,19 +227,21 @@ public class PlayerController : MonoBehaviour
     }
 
     //General Functions
-    private void Update()
+    private void Update() 
     {
-        if (Walking)
+        if (Walking) //If Waliking, Movement is activated to Move a Pawn
         {
             Movement();
         }
 
-        if(ActivePlayer)
+        //Controls the Visibility
+        if (ActivePlayer)
             spriteRenderer.sortingOrder = 1;
         else if (!ActivePlayer)
             spriteRenderer.sortingOrder = 0;
 
-        if(currentMoves == 56 && !Winner)
+        //PAwn Win activated when the Total Moves is equal 56
+        if (currentMoves == 56 && !Winner)
             PawnWin();
     }
 }
