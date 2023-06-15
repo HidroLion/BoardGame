@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SearchService;
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
     bool safeZone; //Player Locked
     bool activePlayer; //Player have the turn
 
+    float timer;
+
     public bool Walking { get => walking; set => walking = value; }
     public bool Unlock { get => unlock; set => unlock = value; }
     public bool SafeZone { get => safeZone; set => safeZone = value; }
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour
         jailPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
         LateStart();
+        timer = 0;
     }
 
     //Strat Delayed for evit Missing errors
@@ -95,11 +99,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentMoves + maxMoves <= 56)
         {
-            if (maxMoves <= 1)
-            {
-                CircleCollider.enabled = true;
-            }
-            else if (maxMoves > 1)
+            if (maxMoves > 1)
             {
                 CircleCollider.enabled = false;
             }
@@ -233,6 +233,8 @@ public class PlayerController : MonoBehaviour
         {
             Movement();
         }
+        else if(!CircleCollider.enabled)
+            CircleCollider.enabled = true;
 
         //Controls the Visibility
         if (ActivePlayer)

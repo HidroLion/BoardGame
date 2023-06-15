@@ -131,25 +131,17 @@ public class StagesMachine : MonoBehaviour
                             else if (Players[PlayerTurn].JailPawns.Count <= 3)
                             {
                                 managerUI.ReadyText("Select a Pawn");
-                                SelectPawn();
                             }
                         }
                     }
                     else if (diceRolled)
-                    {
-                        /*
+                    {                        
                         if (Players[PlayerTurn].JailPawns.Count != 0)
                         {
                             if (dice == 6)
                             {
                                 managerUI.ReadyText("Unlock a Pawn");
                                 SelectPawn(true);
-                            }
-                            else if (Players[PlayerTurn].JailPawns.Count == 4)
-                            {
-                                managerUI.ReadyText("Skip Turn");
-                                ChangeTurn();
-                                diceRolled = false;
                             }
                             else if (Players[PlayerTurn].JailPawns.Count <= 3)
                             {
@@ -162,7 +154,7 @@ public class StagesMachine : MonoBehaviour
                             managerUI.ReadyText("Select a Pawn");
                             SelectPawn();
                         }
-                        */
+                        
                     }
                 }
             }
@@ -240,12 +232,6 @@ public class StagesMachine : MonoBehaviour
 
     public void ChangeTurn()
     {
-        /*
-        for (int i = 0; i < 4; i++)
-        {
-            Players[playerTurn].AllPawns[i].CircleCollider.enabled = true;
-        }
-        */
         if (dice != 6 || extraTurns == 2)
         {
             for (int i = 0; i < 4; i++)
