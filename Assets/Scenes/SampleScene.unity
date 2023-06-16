@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 17114123}
   - component: {fileID: 17114122}
   - component: {fileID: 17114127}
+  - component: {fileID: 17114128}
   - component: {fileID: 17114124}
   m_Layer: 0
   m_Name: GreenPawn (2)
@@ -294,6 +295,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &17114128
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17114120}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &57005950
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +960,7 @@ GameObject:
   - component: {fileID: 314764734}
   - component: {fileID: 314764733}
   - component: {fileID: 314764738}
+  - component: {fileID: 314764739}
   - component: {fileID: 314764735}
   m_Layer: 0
   m_Name: GreenPawn (0)
@@ -1071,6 +1089,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &314764739
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314764731}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &328366998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,6 +1701,7 @@ GameObject:
   - component: {fileID: 534036385}
   - component: {fileID: 534036387}
   - component: {fileID: 534036391}
+  - component: {fileID: 534036392}
   - component: {fileID: 534036388}
   m_Layer: 0
   m_Name: RedPawn (0)
@@ -1795,6 +1830,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &534036392
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534036383}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &552951813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,6 +2013,7 @@ GameObject:
   - component: {fileID: 628301846}
   - component: {fileID: 628301845}
   - component: {fileID: 628301850}
+  - component: {fileID: 628301851}
   - component: {fileID: 628301847}
   m_Layer: 0
   m_Name: RedPawn  (2)
@@ -2090,6 +2142,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &628301851
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628301843}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &638679144
 GameObject:
   m_ObjectHideFlags: 0
@@ -2102,6 +2170,7 @@ GameObject:
   - component: {fileID: 638679147}
   - component: {fileID: 638679146}
   - component: {fileID: 638679151}
+  - component: {fileID: 638679152}
   - component: {fileID: 638679148}
   m_Layer: 0
   m_Name: YellowPawn (1)
@@ -2230,6 +2299,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &638679152
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638679144}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &640550685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,6 +2663,7 @@ GameObject:
   - component: {fileID: 746249178}
   - component: {fileID: 746249177}
   - component: {fileID: 746249182}
+  - component: {fileID: 746249183}
   - component: {fileID: 746249179}
   m_Layer: 0
   m_Name: GreenPawn (3)
@@ -2706,6 +2792,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &746249183
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746249175}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &754533927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2718,6 +2820,7 @@ GameObject:
   - component: {fileID: 754533930}
   - component: {fileID: 754533929}
   - component: {fileID: 754533934}
+  - component: {fileID: 754533935}
   - component: {fileID: 754533931}
   m_Layer: 0
   m_Name: YellowPawn (3)
@@ -2846,6 +2949,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &754533935
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754533927}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &770484429
 GameObject:
   m_ObjectHideFlags: 0
@@ -3389,6 +3508,7 @@ GameObject:
   - component: {fileID: 1074881595}
   - component: {fileID: 1074881594}
   - component: {fileID: 1074881599}
+  - component: {fileID: 1074881600}
   - component: {fileID: 1074881596}
   m_Layer: 0
   m_Name: BluePawn (3)
@@ -3517,6 +3637,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &1074881600
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074881592}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &1087426238
 GameObject:
   m_ObjectHideFlags: 0
@@ -3529,6 +3665,7 @@ GameObject:
   - component: {fileID: 1087426241}
   - component: {fileID: 1087426240}
   - component: {fileID: 1087426245}
+  - component: {fileID: 1087426246}
   - component: {fileID: 1087426242}
   m_Layer: 0
   m_Name: BluePawn (2)
@@ -3657,6 +3794,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &1087426246
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087426238}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &1112441945
 GameObject:
   m_ObjectHideFlags: 0
@@ -3996,7 +4149,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 0.05, y: 0.05}
   m_EdgeRadius: 0
 --- !u!50 &1121187178
 Rigidbody2D:
@@ -4062,6 +4215,7 @@ GameObject:
   - component: {fileID: 1165642797}
   - component: {fileID: 1165642796}
   - component: {fileID: 1165642801}
+  - component: {fileID: 1165642802}
   - component: {fileID: 1165642798}
   m_Layer: 0
   m_Name: BluePawn (1)
@@ -4190,6 +4344,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &1165642802
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165642794}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &1215559544
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,6 +4372,7 @@ GameObject:
   - component: {fileID: 1215559547}
   - component: {fileID: 1215559546}
   - component: {fileID: 1215559551}
+  - component: {fileID: 1215559552}
   - component: {fileID: 1215559548}
   m_Layer: 0
   m_Name: YellowPawn (0)
@@ -4330,6 +4501,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &1215559552
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215559544}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &1220957232
 GameObject:
   m_ObjectHideFlags: 0
@@ -4466,6 +4653,7 @@ GameObject:
   - component: {fileID: 1286445637}
   - component: {fileID: 1286445636}
   - component: {fileID: 1286445641}
+  - component: {fileID: 1286445642}
   - component: {fileID: 1286445638}
   m_Layer: 0
   m_Name: BluePawn (0)
@@ -4594,6 +4782,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &1286445642
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286445634}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &1312922727
 GameObject:
   m_ObjectHideFlags: 0
@@ -4848,7 +5052,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 0.05, y: 0.05}
   m_EdgeRadius: 0
 --- !u!50 &1384703545
 Rigidbody2D:
@@ -4976,6 +5180,7 @@ GameObject:
   - component: {fileID: 1452989290}
   - component: {fileID: 1452989289}
   - component: {fileID: 1452989294}
+  - component: {fileID: 1452989295}
   - component: {fileID: 1452989291}
   m_Layer: 0
   m_Name: GreenPawn (1)
@@ -5104,6 +5309,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &1452989295
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452989287}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &1473314115
 GameObject:
   m_ObjectHideFlags: 0
@@ -5289,7 +5510,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 0.05, y: 0.05}
   m_EdgeRadius: 0
 --- !u!50 &1558296907
 Rigidbody2D:
@@ -5417,6 +5638,7 @@ GameObject:
   - component: {fileID: 1656067215}
   - component: {fileID: 1656067214}
   - component: {fileID: 1656067219}
+  - component: {fileID: 1656067220}
   - component: {fileID: 1656067216}
   m_Layer: 0
   m_Name: RedPawn  (1)
@@ -5545,6 +5767,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &1656067220
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656067212}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &1659989369
 GameObject:
   m_ObjectHideFlags: 0
@@ -6300,7 +6538,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 0.05, y: 0.05}
   m_EdgeRadius: 0
 --- !u!50 &1832546523
 Rigidbody2D:
@@ -6372,6 +6610,7 @@ GameObject:
   - component: {fileID: 1866314515}
   - component: {fileID: 1866314514}
   - component: {fileID: 1866314519}
+  - component: {fileID: 1866314520}
   - component: {fileID: 1866314516}
   m_Layer: 0
   m_Name: YellowPawn (2)
@@ -6500,6 +6739,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &1866314520
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866314512}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &1867515175
 GameObject:
   m_ObjectHideFlags: 0
@@ -6623,6 +6878,7 @@ GameObject:
   - component: {fileID: 1902371242}
   - component: {fileID: 1902371241}
   - component: {fileID: 1902371246}
+  - component: {fileID: 1902371247}
   - component: {fileID: 1902371243}
   m_Layer: 0
   m_Name: RedPawn  (3)
@@ -6751,6 +7007,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!58 &1902371247
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902371239}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  serializedVersion: 2
+  m_Radius: 0.12
 --- !u!1 &1918133813
 GameObject:
   m_ObjectHideFlags: 0
