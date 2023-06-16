@@ -72,11 +72,6 @@ public class StagesMachine : MonoBehaviour
 
             if (timer >= maxTime && !newTurn)
             {
-                for (int i = 0; i < 4; i++)
-                {
-                    Players[PlayerTurn].AllPawns[i].ActivePlayer = true;
-                }
-
                 timer = 0;
                 newTurn = true;
                 managerUI.UpdateUI(PlayerTurn);
@@ -98,7 +93,7 @@ public class StagesMachine : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.X))
                 {
-                    dice = 1;
+                    dice = 13;
                     Debug.Log("{HD} - Dice Rolled: " + dice);
                     diceRolled = true;
                 }
@@ -110,6 +105,11 @@ public class StagesMachine : MonoBehaviour
                 {
                     if (!diceRolled)
                     {
+                        for (int i = 0; i < 4; i++)
+                        {
+                            Players[PlayerTurn].AllPawns[i].ActivePlayer = true;
+                        }
+
                         dice = Random.Range(0, 6) + 1;
 
                         managerUI.ReadyText("Dice Rolled");
@@ -234,17 +234,22 @@ public class StagesMachine : MonoBehaviour
     {
         if (dice != 6 || extraTurns == 2)
         {
-            for (int i = 0; i < 4; i++)
-            {
-                Players[PlayerTurn].AllPawns[i].ActivePlayer = false;
-            }
-
             diceRolled = false;
             newTurn = false;
 
-            PlayerTurn++;
-            if (PlayerTurn == 4)
-                PlayerTurn = 0;
+            UpdateTurn();
         }
+    }
+
+    void UpdateTurn()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Players[PlayerTurn].AllPawns[i].ActivePlayer = false;
+        }
+
+        PlayerTurn++;
+        if (PlayerTurn == 4)
+            PlayerTurn = 0;
     }
 }

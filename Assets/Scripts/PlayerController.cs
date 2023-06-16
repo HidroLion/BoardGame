@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int colorID; //Array Position of Colors Tiles Lists
     [SerializeField] float speed; //Movement Speed: Recomended 10
 
-    CircleCollider2D circleCollider; //Collider Refference
     Rigidbody2D rb2D; //Rigidbody Refference
     SpriteRenderer spriteRenderer; //Sprite Renderer Refference
     Vector3 jailPosition; //Jail Pawn Position = Start Position.
@@ -31,13 +30,10 @@ public class PlayerController : MonoBehaviour
     bool safeZone; //Player Locked
     bool activePlayer; //Player have the turn
 
-    float timer;
-
     public bool Walking { get => walking; set => walking = value; }
     public bool Unlock { get => unlock; set => unlock = value; }
     public bool SafeZone { get => safeZone; set => safeZone = value; }
     public bool ActivePlayer { get => activePlayer; set => activePlayer = value; }
-    public CircleCollider2D CircleCollider { get => circleCollider; set => circleCollider = value; }
     public bool Winner { get => winner; set => winner = value; }
 
     //Start Funtions
@@ -46,14 +42,12 @@ public class PlayerController : MonoBehaviour
         currentMoves = 0;
         Unlock = false;
 
-        CircleCollider = gameObject.GetComponent<CircleCollider2D>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         jailPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
         LateStart();
-        timer = 0;
     }
 
     //Strat Delayed for evit Missing errors
@@ -99,24 +93,23 @@ public class PlayerController : MonoBehaviour
     {
         if (currentMoves + maxMoves <= 56)
         {
-            if (maxMoves > 1)
-            {
-                CircleCollider.enabled = false;
-            }
-
-            //circleCollider.enabled = false;
             transform.position =
-                Vector2.MoveTowards
+                Vector3.MoveTowards
                     (transform.position, playerRoute[currentMoves + 1].position, speed * Time.deltaTime);
             if (transform.position == playerRoute[currentMoves + 1].position)
             {
+                movesCount++;
+                if (movesCount == 52)
+                    movesCount = 0;
+
                 currentMoves++;
                 maxMoves--;
 
                 if (maxMoves == 0)
                 {
-                    Walking = false;
+                    SearchPlayer();
                     gameCotroller.ChangeTurn();
+                    Walking = false;
                 }
             }
         }
@@ -136,7 +129,8 @@ public class PlayerController : MonoBehaviour
             collision.GetComponent<PlayerController>().SafeZone = true;
         }
 
-        if (ActivePlayer && !SafeZone) //Is player has the turn active this colliders.
+        /*
+        if (!SafeZone) //Is player has the turn active this colliders.
         {
             switch (colorID) //Controls when the player touches another Pawn, depending of the color.
             {
@@ -177,6 +171,7 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
+        */
     }
 
     private void OnTriggerExit2D(Collider2D collision) //Disable de Safe Zones when the players separate or leave the safe zone
@@ -192,20 +187,85 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void SearchPlayer() //Find a player in the Same Tile to the Player in Turn to kill it
+    {
+        switch (colorID)
+        {
+            case 0:
+                for (int i = 0; i < 4; i++)
+                {
+                    if (gameCotroller.Players[1].AllPawns[i].movesCount == movesCount)
+                        gameCotroller.Players[1].AllPawns[i].Dead();
+
+                    if (gameCotroller.Players[2].AllPawns[i].movesCount == movesCount)
+                        gameCotroller.Players[2].AllPawns[i].Dead();
+
+                    if (gameCotroller.Players[3].AllPawns[i].movesCount == movesCount)
+                        gameCotroller.Players[3].AllPawns[i].Dead();
+                }
+                break;
+
+            case 1:
+                for (int i = 0; i < 4; i++)
+                {
+                    if (gameCotroller.Players[0].AllPawns[i].movesCount == movesCount)
+                        gameCotroller.Players[0].AllPawns[i].Dead();
+
+                    if (gameCotroller.Players[2].AllPawns[i].movesCount == movesCount)
+                        gameCotroller.Players[2].AllPawns[i].Dead();
+
+                    if (gameCotroller.Players[3].AllPawns[i].movesCount == movesCount)
+                        gameCotroller.Players[3].AllPawns[i].Dead();
+                }
+                break;
+
+            case 2:
+                for (int i = 0; i < 4; i++)
+                {
+                    if (gameCotroller.Players[1].AllPawns[i].movesCount == movesCount)
+                        gameCotroller.Players[1].AllPawns[i].Dead();
+
+                    if (gameCotroller.Players[0].AllPawns[i].movesCount == movesCount)
+                        gameCotroller.Players[0].AllPawns[i].Dead();
+
+                    if (gameCotroller.Players[3].AllPawns[i].movesCount == movesCount)
+                        gameCotroller.Players[3].AllPawns[i].Dead();
+                }
+                break;
+
+            case 3:
+                for (int i = 0; i < 4; i++)
+                {
+                    if (gameCotroller.Players[1].AllPawns[i].movesCount == movesCount)
+                        gameCotroller.Players[1].AllPawns[i].Dead();
+
+                    if (gameCotroller.Players[2].AllPawns[i].movesCount == movesCount)
+                        gameCotroller.Players[2].AllPawns[i].Dead();
+
+                    if (gameCotroller.Players[0].AllPawns[i].movesCount == movesCount)
+                        gameCotroller.Players[0].AllPawns[i].Dead();
+                }
+                break;
+        }
+    }
+
     public void Dead() //Player Dead (This Function is activated by other Pawn)
     {
-        Unlock = false;
-        transform.position = jailPosition;
-        currentMoves = 0;
-        gameCotroller.Players[colorID].JailPawns.Add(gameObject.GetComponent<PlayerController>());
+        if (!SafeZone)
+        {
+            Unlock = false;
+            transform.position = jailPosition;
+            currentMoves = 0;
+            gameCotroller.Players[colorID].JailPawns.Add(gameObject.GetComponent<PlayerController>());
 
-        gameCotroller.PlayerTurn--;
-        if (gameCotroller.PlayerTurn == -1)
-            gameCotroller.PlayerTurn = 0;
+            gameCotroller.PlayerTurn--;
+            if (gameCotroller.PlayerTurn == -1)
+                gameCotroller.PlayerTurn = 0;
 
 #if UNITY_EDITOR
-        Debug.Log("{HD} - Kill: Pawn Dead - Player " + colorID + " Count: " + gameCotroller.Players[colorID].JailPawns.Count);
+            Debug.Log("{HD} - Kill: Pawn Dead - Player " + colorID + " Count: " + gameCotroller.Players[colorID].JailPawns.Count);
 #endif
+        }
     }
      
     void PawnWin() //Pawn Win Conditions
@@ -233,8 +293,6 @@ public class PlayerController : MonoBehaviour
         {
             Movement();
         }
-        else if(!CircleCollider.enabled)
-            CircleCollider.enabled = true;
 
         //Controls the Visibility
         if (ActivePlayer)
