@@ -29,6 +29,10 @@ public class StagesMachine : MonoBehaviour
     public bool GameFinish { get => gameFinish; set => gameFinish = value; }
     public int PlayerTurn { get => playerTurn; set => playerTurn = value; }
 
+    public bool NewTurn { get => newTurn; }
+    public bool DiceRolled { get => diceRolled; }
+    public int ExtraTurns { get => extraTurns; }
+
     private void Start()
     {
         managerUI = GetComponent<UIManager>();
