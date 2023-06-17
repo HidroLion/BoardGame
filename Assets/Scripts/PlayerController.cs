@@ -242,6 +242,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ShowPlayer(float z)
+    {
+        transform.position += Vector3.forward * z;
+    }
+
     //General Functions
     private void Update() 
     {
@@ -252,9 +257,13 @@ public class PlayerController : MonoBehaviour
 
         //Controls the Visibility
         if (ActivePlayer)
+        {
             spriteRenderer.sortingOrder = 1;
+        }
         else if (!ActivePlayer)
+        {
             spriteRenderer.sortingOrder = 0;
+        }
 
         //PAwn Win activated when the Total Moves is equal 56
         if (currentMoves == 56 && !Winner)

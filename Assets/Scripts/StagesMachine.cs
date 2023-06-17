@@ -135,6 +135,7 @@ public class StagesMachine : MonoBehaviour
                         for (int i = 0; i < 4; i++)
                         {
                             Players[PlayerTurn].AllPawns[i].ActivePlayer = true;
+                            Players[PlayerTurn].AllPawns[i].ShowPlayer(1);
                         }
 
                         dice = Random.Range(0, 6) + 1;
@@ -203,7 +204,7 @@ public class StagesMachine : MonoBehaviour
                 if (!pawnSelect.Unlock)
                 {
                     pawnSelect.FirstMove();
-                    if (extraTurns < 3)
+                    if (dice == 6 && extraTurns < 3)
                     {
                         diceRolled = false;
                         extraTurns++;
@@ -279,6 +280,7 @@ public class StagesMachine : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             Players[PlayerTurn].AllPawns[i].ActivePlayer = false;
+            Players[PlayerTurn].AllPawns[i].ShowPlayer(-1);
         }
 
         PlayerTurn++;
