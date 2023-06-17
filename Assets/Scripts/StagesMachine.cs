@@ -203,8 +203,15 @@ public class StagesMachine : MonoBehaviour
                 if (!pawnSelect.Unlock)
                 {
                     pawnSelect.FirstMove();
-                    diceRolled = false;
-                    newTurn = false;
+                    if (extraTurns < 3)
+                    {
+                        diceRolled = false;
+                        extraTurns++;
+                    }
+                    else
+                    {
+                        extraTurns = 0;
+                    }
 
                     Players[PlayerTurn].JailPawns.RemoveAt(Players[PlayerTurn].JailPawns.Count - 1);
                     managerUI.ReadyText("Pawn Unlocked... Roll Again");
@@ -219,7 +226,6 @@ public class StagesMachine : MonoBehaviour
                     Debug.Log("{HD} - Unlock: Pawn Selected Not Avaliable - Player " + PlayerTurn + " Unlocked: " + pawnSelect.name);
                 }
 #endif
-
             }
         }
     }

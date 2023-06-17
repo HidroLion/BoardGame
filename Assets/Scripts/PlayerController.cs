@@ -128,50 +128,6 @@ public class PlayerController : MonoBehaviour
             SafeZone = true;
             collision.GetComponent<PlayerController>().SafeZone = true;
         }
-
-        /*
-        if (!SafeZone) //Is player has the turn active this colliders.
-        {
-            switch (colorID) //Controls when the player touches another Pawn, depending of the color.
-            {
-                case 0:
-                    if (collision.CompareTag("Player 1") || collision.CompareTag("Player 2") || collision.CompareTag("Player 3"))
-                    {
-                        if (!collision.GetComponent<PlayerController>().SafeZone
-                            && !collision.GetComponent<PlayerController>().ActivePlayer)
-                            collision.GetComponent<PlayerController>().Dead();
-                    }
-                    break;
-
-                case 1:
-                    if (collision.CompareTag("Player 0") || collision.CompareTag("Player 2") || collision.CompareTag("Player 3"))
-                    {
-                        if (!collision.GetComponent<PlayerController>().SafeZone
-                            && !collision.GetComponent<PlayerController>().ActivePlayer)
-                            collision.GetComponent<PlayerController>().Dead();
-                    }
-                    break;
-
-                case 2:
-                    if (collision.CompareTag("Player 0") || collision.CompareTag("Player 1") || collision.CompareTag("Player 3"))
-                    {
-                        if (!collision.GetComponent<PlayerController>().SafeZone
-                            && !collision.GetComponent<PlayerController>().ActivePlayer)
-                            collision.GetComponent<PlayerController>().Dead();
-                    }
-                    break;
-
-                case 3:
-                    if (collision.CompareTag("Player 0") || collision.CompareTag("Player 1") || collision.CompareTag("Player 2"))
-                    {
-                        if (!collision.GetComponent<PlayerController>().SafeZone
-                            && !collision.GetComponent<PlayerController>().ActivePlayer)
-                            collision.GetComponent<PlayerController>().Dead();
-                    }
-                    break;
-            }
-        }
-        */
     }
 
     private void OnTriggerExit2D(Collider2D collision) //Disable de Safe Zones when the players separate or leave the safe zone
