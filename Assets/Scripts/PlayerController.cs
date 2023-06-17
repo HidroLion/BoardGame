@@ -251,7 +251,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dead() //Player Dead (This Function is activated by other Pawn)
     {
-        if (!SafeZone)
+        if (!SafeZone && Unlock)
         {
             Unlock = false;
             transform.position = jailPosition;

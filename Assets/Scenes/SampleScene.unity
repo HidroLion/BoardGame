@@ -3907,6 +3907,7 @@ GameObject:
   - component: {fileID: 1113386085}
   - component: {fileID: 1113386084}
   - component: {fileID: 1113386086}
+  - component: {fileID: 1113386087}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -4008,6 +4009,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonText: {fileID: 226952823}
   winnerText: {fileID: 2090637877}
+--- !u!114 &1113386087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113386080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cea43f83bbd5c74bb288a07ba5bf5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player_1: 0
+  Player_2: 0
+  Player_3: 0
+  Player_4: 0
+  jailedPawnsList1: []
+  jailedPawnsList2: []
+  jailedPawnsList3: []
+  jailedPawnsList4: []
+  playerTurn: 0
+  extraTurns: 0
+  newTurn: 0
 --- !u!1 &1120435884
 GameObject:
   m_ObjectHideFlags: 0
