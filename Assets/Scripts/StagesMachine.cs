@@ -84,16 +84,39 @@ public class StagesMachine : MonoBehaviour
             if (newTurn)
             {
 #if UNITY_EDITOR
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetKeyDown(KeyCode.Alpha6))
                 {
                     dice = 6;
                     Debug.Log("{HD} - Dice Rolled: " + dice);
                     diceRolled = true;
                 }
-
-                if (Input.GetKeyDown(KeyCode.X))
+                if (Input.GetKeyDown(KeyCode.Alpha5))
                 {
-                    dice = 13;
+                    dice = 5;
+                    Debug.Log("{HD} - Dice Rolled: " + dice);
+                    diceRolled = true;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha4))
+                {
+                    dice = 4;
+                    Debug.Log("{HD} - Dice Rolled: " + dice);
+                    diceRolled = true;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    dice = 3;
+                    Debug.Log("{HD} - Dice Rolled: " + dice);
+                    diceRolled = true;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    dice = 2;
+                    Debug.Log("{HD} - Dice Rolled: " + dice);
+                    diceRolled = true;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    dice = 1;
                     Debug.Log("{HD} - Dice Rolled: " + dice);
                     diceRolled = true;
                 }
