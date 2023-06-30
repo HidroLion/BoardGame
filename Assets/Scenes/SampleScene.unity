@@ -205,7 +205,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 26
   colorID: 2
-  speed: 10
+  speed: 7
 --- !u!212 &17114123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -999,7 +999,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 26
   colorID: 2
-  speed: 10
+  speed: 7
 --- !u!212 &314764734
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1792,7 +1792,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 13
   colorID: 1
-  speed: 10
+  speed: 7
 --- !u!50 &534036388
 Rigidbody2D:
   serializedVersion: 4
@@ -2052,7 +2052,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 13
   colorID: 1
-  speed: 10
+  speed: 7
 --- !u!212 &628301846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2209,7 +2209,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 39
   colorID: 3
-  speed: 10
+  speed: 7
 --- !u!212 &638679147
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2702,7 +2702,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 26
   colorID: 2
-  speed: 10
+  speed: 7
 --- !u!212 &746249178
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2859,7 +2859,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 39
   colorID: 3
-  speed: 10
+  speed: 7
 --- !u!212 &754533930
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3547,7 +3547,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 0
   colorID: 0
-  speed: 10
+  speed: 7
 --- !u!212 &1074881595
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3704,7 +3704,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 0
   colorID: 0
-  speed: 10
+  speed: 7
 --- !u!212 &1087426241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4278,7 +4278,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 0
   colorID: 0
-  speed: 10
+  speed: 7
 --- !u!212 &1165642797
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4435,7 +4435,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 39
   colorID: 3
-  speed: 10
+  speed: 7
 --- !u!212 &1215559547
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4716,7 +4716,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 0
   colorID: 0
-  speed: 10
+  speed: 7
 --- !u!212 &1286445637
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5243,7 +5243,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 26
   colorID: 2
-  speed: 10
+  speed: 7
 --- !u!212 &1452989290
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5701,7 +5701,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 13
   colorID: 1
-  speed: 10
+  speed: 7
 --- !u!212 &1656067215
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6673,7 +6673,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 39
   colorID: 3
-  speed: 10
+  speed: 7
 --- !u!212 &1866314515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6941,7 +6941,7 @@ MonoBehaviour:
   list: {fileID: 1113386081}
   startPosIndex: 13
   colorID: 1
-  speed: 10
+  speed: 7
 --- !u!212 &1902371242
 SpriteRenderer:
   m_ObjectHideFlags: 0

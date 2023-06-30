@@ -147,8 +147,8 @@ public class StagesMachine : MonoBehaviour
                         {
                             if (dice == 6)
                             {
-                                managerUI.ReadyText("Unlock a Pawn");
-                                SelectPawn(true);
+                                managerUI.ReadyText("Unlock or Select a Pawn");
+                                SelectPawn();
                             }
                             else if (Players[PlayerTurn].JailPawns.Count == 4)
                             {
@@ -163,33 +163,16 @@ public class StagesMachine : MonoBehaviour
                         }
                     }
                     else if (diceRolled)
-                    {                        
-                        if (Players[PlayerTurn].JailPawns.Count != 0)
-                        {
-                            if (dice == 6)
-                            {
-                                managerUI.ReadyText("Unlock a Pawn");
-                                SelectPawn(true);
-                            }
-                            else if (Players[PlayerTurn].JailPawns.Count <= 3)
-                            {
-                                managerUI.ReadyText("Select a Pawn");
-                                SelectPawn();
-                            }
-                        }
-                        else
-                        {
-                            managerUI.ReadyText("Select a Pawn");
-                            SelectPawn();
-                        }
-                        
+                    {
+                        managerUI.ReadyText("Select a Pawn");
+                        SelectPawn();
                     }
                 }
             }
         }
     }
 
-    void SelectPawn(bool unlocked)
+    void SelectPawn()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
@@ -201,7 +184,7 @@ public class StagesMachine : MonoBehaviour
             {
                 pawnSelect = hit.collider.GetComponent<PlayerController>();
 
-                if (!pawnSelect.Unlock)
+                if (!pawnSelect.Unlock && dice == 6)
                 {
                     pawnSelect.FirstMove();
                     if (dice == 6 && extraTurns < 3)
@@ -223,30 +206,8 @@ public class StagesMachine : MonoBehaviour
 #if UNITY_EDITOR
                 else
                 {
-                    managerUI.ReadyText("Unlock a Pawn!");
-                    Debug.Log("{HD} - Unlock: Pawn Selected Not Avaliable - Player " + PlayerTurn + " Unlocked: " + pawnSelect.name);
-                }
-#endif
-            }
-        }
-    }
-
-    void SelectPawn()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-
-        if (hit.collider != null)
-        {
-            if (hit.collider.CompareTag("Player " + PlayerTurn))
-            {
-                pawnSelect = hit.collider.GetComponent<PlayerController>();
-
-                if (pawnSelect.Unlock)
-                {
                     pawnSelect.TilesMovement(dice);
-                    if(dice == 6 && extraTurns < 3)
+                    if (dice == 6 && extraTurns < 3)
                     {
                         diceRolled = false;
                         extraTurns++;
@@ -255,10 +216,10 @@ public class StagesMachine : MonoBehaviour
                     {
                         extraTurns = 0;
                     }
-                }
-                managerUI.ReadyText("Moving Pawn...");
 #if UNITY_EDITOR
-                Debug.Log("{HD} - Move: Pawn Selected - Player " + PlayerTurn + " Pawn: " + pawnSelect.name);
+                    Debug.Log("{HD} - Move: Pawn Selected - Player " + PlayerTurn + " Pawn: " + pawnSelect.name);
+#endif
+                }
 #endif
             }
         }

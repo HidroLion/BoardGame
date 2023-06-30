@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = list.Tiles[startPosIndex].position;
         movesCount = startPosIndex;
+        SearchPlayer();
         Unlock = true;
     }
 
